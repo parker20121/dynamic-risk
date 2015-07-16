@@ -1,0 +1,9 @@
+building-types.lst:residence:feature
+canadian-provinces.lst:location:province
+measurements.lst:measurement:unit
+parking-types.lst:residence:feature
+property-types.lst:residence:feature
+report-labels.lst:report:label
+titles.lst:residence:title
+waterfront.lst:residence:location
+zoning-ids.lst:residence:location
