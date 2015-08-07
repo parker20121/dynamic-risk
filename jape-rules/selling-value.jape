@@ -1,0 +1,9 @@
+Phase: ConjunctionIdentifier
+Input: Money
+Rule: SellingValue
+Priority:20
+(
+  {Token.kind=="money"}
+):label
+-->
+:label.SellingValue = {rule="SellingValue"}

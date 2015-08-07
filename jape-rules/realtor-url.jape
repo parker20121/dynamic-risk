@@ -1,0 +1,9 @@
+Phase: ConjunctionIdentifier
+Input: Token
+Rule: RealatorUrl
+Priority:20
+(
+  {Token.string == "http:\/\/www.realtor.ca\/property\?Details\.aspx=\d*"}
+):label
+-->
+:label.RealtorUrl = {rule="RealtorUrl"}

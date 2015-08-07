@@ -1,0 +1,44 @@
+Phase: ConjunctionIdentifier
+Input: Token
+Rule: Measurement
+Priority:20
+(
+  {Token.kind=="number"}
+  {Token.space}
+  {Token.string == "ft" | Token.string == "in"}
+):label
+-->
+:label.Measurement = {rule="Measurement"}
+
+
+Phase: ConjunctionIdentifier
+Input: Measurement
+Rule: Dimension
+Priority:20
+(
+  {Measurement}
+  {Token.space}
+  {Token.string == "x"}
+  {Token.space}
+  {Measurement}
+):label
+-->
+:label.Dimension = {rule="Dimension"}
+
+
+Phase: ConjunctionIdentifier
+Input: Dimension
+Rule: RoomDimension
+Priority:20
+(
+  {Dimension}
+  {Token.space}
+  {Token.string == ","}
+  {Dimension}
+  {Token.space}
+  {Token.string == ","}
+  {Dimension}
+):label
+-->
+:label.RoomDimension = {rule="RoomDimension"}
+
