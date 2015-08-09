@@ -1,9 +1,25 @@
-Phase: ConjunctionIdentifier
+Phase: RealatorUrl
 Input: Token
 Rule: RealatorUrl
 Priority:20
 (
-  {Token.string == "http:\/\/www.realtor.ca\/property\?Details\.aspx=\d*"}
+  {Token.string == "http"}
+  {Token.string == ":"}
+  {Token.string == "/"}
+  {Token.string == "/"}
+  {Token.string == "www"}
+  {Token.string == "."}
+  {Token.string == "realtor"}
+  {Token.string == "."}
+  {Token.string == "ca"}
+  {Token.string == "/"}
+  {Token.string == "propertyDetails"}
+  {Token.string == "."}
+  {Token.string == "aspx"}
+  {Token.string == "?"}
+  {Token.string == "PropertyId"}
+  {Token.string == "="}
+  {Token.kind == "number"}
 ):label
 -->
 :label.RealtorUrl = {rule="RealtorUrl"}
