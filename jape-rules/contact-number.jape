@@ -18,7 +18,7 @@ Input: Token ContactNumber
 Rule: FaxNumber
 Priority: 20
 (
-   {Token.string == "Fax"}
+   {Token.string=="Fax"}
    {Token.kind=="punctuation"}
    {ContactNumber}
 ):label
