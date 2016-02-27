@@ -4,22 +4,19 @@ Rule: Measurement
 Priority:20
 (
   {Token.kind=="number"}
-  {Token.space}
-  {Token.string == "ft" | Token.string == "in"}
+  ({Token.string == "ft"} | {Token.string == "in"} | {Token.string == "sqft"})
 ):label
 -->
 :label.Measurement = {rule="Measurement"}
 
 
 Phase: ConjunctionIdentifier
-Input: Measurement
+Input: Token Measurement
 Rule: Dimension
 Priority:20
 (
   {Measurement}
-  {Token.space}
   {Token.string == "x"}
-  {Token.space}
   {Measurement}
 ):label
 -->
@@ -27,18 +24,28 @@ Priority:20
 
 
 Phase: ConjunctionIdentifier
-Input: Dimension
+Input: Token Measurement Dimension
 Rule: RoomDimension
 Priority:20
 (
-  {Dimension}
-  {Token.space}
+  ({Dimension}
   {Token.string == ","}
-  {Dimension}
-  {Token.space}
-  {Token.string == ","}
-  {Dimension}
+  {Measurement}) |
+  ({Measurement}
+   {Token.string == ","}
+   {Dimension})
 ):label
 -->
 :label.RoomDimension = {rule="RoomDimension"}
 
+Phase: ConjunctionIdentifier
+Input: Token
+Rule: RoomDimensionNotAvailable
+Priority: 20
+(
+  {Token.string == "Measurements"}
+  {Token.string == "not"}
+  {Token.string == "available"}
+):label
+-->
+:label.RoomDimension = {rule="RoomDimensionNotAvailable"}

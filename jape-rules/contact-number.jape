@@ -1,4 +1,4 @@
-Phase: DynamicRisk
+Phase: Input
 Input: Token
 Rule: ContactNumber
 Priority:20
@@ -10,17 +10,18 @@ Priority:20
   {Token.kind=="number",Token.length==4}
 ):label
 -->
-:label.ContactNumber = {rule="ContactNumber"}
+:label.ContactNumber = {rule="Contact Number"}
 
-Phase: DynamicRisk
-Input: Token, ContactNumber
+
+Phase: Input
+Input: Token ContactNumber
 Rule: FaxNumber
 Priority: 20
 (
-   {Token.string == "Fax:"}
+   {Token.string == "Fax"}
    {Token.kind=="punctuation"}
    {ContactNumber}
 ):label
 -->
-:label.FaxNumber = { rule="FaxNumber" }
+:label.FaxNumber = {rule="Fax Number"}
    

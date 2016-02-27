@@ -1,0 +1,9 @@
+Phase: DynamicRisk
+Input: Token
+Rule: PageNumber
+Priority: 20
+(
+   Token.string =~ "Page \d of \d"
+):label 
+->
+:label.PageNumber = { rule="Page Number" }
