@@ -23,5 +23,18 @@ Priority: 20
    {ContactNumber}
 ):label
 -->
-:label.FaxNumber = {rule="Fax Number"}
+:label.FaxNumber = {rule="FaxNumber"}
+
    
+Phase: Input
+Input: Token ContactNumber
+Rule: PhoneNumber
+Priority: 20
+(
+   {Token.string!="Fax"}
+   {Token.kind!="punctuation"}
+   {ContactNumber}
+):label
+-->
+:label.PhoneNumber = {rule="PhoneNumber"}
+

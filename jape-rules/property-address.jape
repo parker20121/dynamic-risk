@@ -1,9 +1,19 @@
-Phase: DynamicRisk
+Phase: ConjunctionIdentifier
 Input: Token
 Rule: PageNumber
 Priority: 20
 (
-   Token.string =~ "Page \d of \d"
+   {Token.string =~ "Page \\d of \\d"}
 ):label 
-->
-:label.PageNumber = { rule="Page Number" }
+-->
+:label.PageNumber = { rule="PageNumber" }
+
+Phase: ConjunctionIdentifier
+Input: Sentence Lookup Token
+Rule: PropertyAddress
+Priority: 20
+(
+   {Sentence contains Lookup.minorType=="province", Sentence notWithin Token.string=="|"}
+):label
+-->
+:label.PropertyAddress = { rule="PropertyAddress" }

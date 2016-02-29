@@ -1,0 +1,11 @@
+Phase: ConjunctionIdentifier
+Input: Sentence Lookup
+Rule: ReportInfo
+Priority: 20
+(
+  ({Lookup.majorType=="report", Lookup.minorType=="label"}
+  ({Sentence})?)
+):label
+-->
+:label.ReportInfo = {rule="ReportInfo"}
+

@@ -38,6 +38,7 @@ Priority:20
 -->
 :label.RoomDimension = {rule="RoomDimension"}
 
+
 Phase: ConjunctionIdentifier
 Input: Token
 Rule: RoomDimensionNotAvailable
@@ -49,3 +50,15 @@ Priority: 20
 ):label
 -->
 :label.RoomDimension = {rule="RoomDimensionNotAvailable"}
+
+
+Phase: ConjunctionIdentifier
+Input: Dimension Measurement
+Rule: LeftOverMeasurement
+Priority: 20
+(
+   {Measurement}
+   {Dimension notWithin Measurement}
+):label
+-->
+:label.RoomDimension = {rule="LeftOverMeasurement"}
