@@ -1,8 +1,0 @@
-Phase: ConjunctionIdentifier
-Input: Token Split
-Rule: ContactNumber
-(
-  {Token.kind="number",Token.length=3}
-  {Token.kind="number",Token.length=3}
-  {Token.kind="number",Token.length=4}
-):contact_number

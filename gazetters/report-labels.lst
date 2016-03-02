@@ -13,6 +13,7 @@ Features
 View
 Waterfront
 Zoning ID
+Building Amenities
 Building
 Bathrooms
 Floor Space
@@ -34,6 +35,8 @@ Cooling
 Exterior Finish
 Heating Fuel
 Heating Type
+Roof Style
+Roofing Material
 Rooms
 Fireplace
 Fire Protection
@@ -44,3 +47,8 @@ Appliances Included
 Zoning Description
 Bathrooms (Partial)
 Utility Sewer
+Fireplace Type
+Fireplace Fuel
+Foundation Type
+Level Type Dimensions
+Landscape Features
